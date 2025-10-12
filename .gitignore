@@ -1,0 +1,10 @@
+эксперементы
+старое
+__pycache__
+
+*.exe
+*.dll
+*.URL
+*.png~
+
+# git add --all
