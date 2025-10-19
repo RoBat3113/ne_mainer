@@ -36,7 +36,8 @@ class Object:
             self.y = self.old_y
         self.old_x = self.x
         self.old_y = self.y
-        lan.send_text(f"SPRITE_RENDER:{self.x}:{self.y}:{self.texture}:{self.angle}")
+        lan.send_data(f"SPRITE_RENDER:{self.x}:{self.y}:{self.texture}:{self.angle}")
+        
     def draw(self, screen):
         if (self.hp <= 0):
             return

@@ -32,7 +32,11 @@ while running:
             running = False
 
     keys = pygame.key.get_pressed()
-    lan.send_to_client(keys)
+    
+    #lan.send_data("X")
+    txt = lan.upload_data()
+    if txt != None:
+        print(f"uploaded: {txt}")
 
     screen.fill(bg_color) # залить экран цветом
     level.draw_level(screen)
