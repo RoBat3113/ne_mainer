@@ -24,4 +24,4 @@ def draw_hp(screen):
     '''
     idx = int((1.0 - (player.hp / player.hp_max)) * 8)
     idx = min(idx, 7)
-    textures.draw_texture(screen, "hp_" + str(idx), 20, -20, 4)
+    textures.draw_texture(screen, "hp_" + str(idx), 20, -20, 2)

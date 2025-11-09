@@ -36,7 +36,35 @@ def generate_level():
             t.walk = True
             t.texture = "пол"
             level.append(t)
-    
+
+    table = {
+        '#': '11',
+        '.': 'пол',
+    }
+
+    # здесь выбирается уровень
+    with open('data/level-1.txt', 'r') as f:
+        # получить размеры мира
+        world_x_txt = f.readline()
+        world_y_txt = f.readline()
+        world_x_splited = world_x_txt.split('=')
+        world_y_splited = world_y_txt.split('=')
+        world_x = int(world_x_splited[1].strip())
+        world_y = int(world_y_splited[1].strip())
+        print("World size:")
+        print(f'- X: {world_x}')
+        print(f'- Y: {world_y}')
+
+        # загрузить все строки
+        for y in range(world_y):
+            line = f.readline()
+
+            for x in range(world_x):
+                texture_name = line[x]
+                if texture_name != '.':
+                    set_tile(x, y, table[texture_name], False)
+
+    '''
     set_tile(15, 3, "10", False)
     set_tile(13, 1, "7", False)
     set_tile(14, 1, "11", False)
@@ -84,12 +112,13 @@ def generate_level():
     set_tile(0, 11, "11", False)
     set_tile(1, 11, "11", False)
     set_tile(2, 11, "11", False)
-    set_tile(4, 11, "9", False)#
+    set_tile(4, 11, "9", False)
+    '''
 
     player = objects.Player()
     player.texture = "игрок"
     player.hp = player.hp_max = 310
-    player.x = 5
+    player.x = 3
     player.y = 5
     player.damage = 1
     objects.objects.append(player)

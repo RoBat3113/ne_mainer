@@ -95,5 +95,3 @@ def upload_data():  # Исправлено имя функции (было uploa
         return None
     
     return None
-
-# git commit -am "чё мы добавили в игру"
